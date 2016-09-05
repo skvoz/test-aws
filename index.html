@@ -1,0 +1,65 @@
+<html>
+<head>
+    <style>
+        html {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .hidden {
+            display: none;
+        }
+        .auth {
+            width: 100px;
+            height: 20px;
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+
+    </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <div class="auth hidden">
+                k.perevozchikov
+            </div>
+            <h3>Amazon AWS based application</h3>
+            <i>CRUD gists</i>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <button id="auth" class="btn btn-success">auth</button>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function() {
+
+        $('#btn-show').on('click', function() {
+
+            $.ajax({
+                url: "https://9l4ab3ahik.execute-api.us-east-1.amazonaws.com/dev/current/5",
+                success: function(json) {
+                    $("#weather-value").append(json.value + ' ºC');
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>
